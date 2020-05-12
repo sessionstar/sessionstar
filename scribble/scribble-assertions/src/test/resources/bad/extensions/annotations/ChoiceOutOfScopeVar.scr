@@ -1,0 +1,22 @@
+module bad.extensions.annotations.ChoiceOutOfScopeVar;
+
+
+type <java> "java.lang.integer" from "rt.jar" as int;
+
+
+global protocol Proto1(role A, role B, role C)
+{
+rec Loop {
+	choice at A {
+		ADD(x:int) from A to B;  
+		ADD(z:int) from B to C;
+		 
+	} or {
+		RES(y:int) from A to B;
+		RES(z:int) from B to C; 
+		continue Loop;
+		}
+	}
+	
+	RES(z) from A to C; 
+}

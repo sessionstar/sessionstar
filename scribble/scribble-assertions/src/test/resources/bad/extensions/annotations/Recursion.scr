@@ -1,0 +1,23 @@
+module bad.extensions.annotations.Recursion;
+
+
+type <java> "java.lang.integer" from "rt.jar" as integer;
+type <java> "java.lang.Long" from "rt.jar" as Long;
+
+global protocol Prot(role A, role B, role C)
+{
+//rec Loop {
+	choice at A {
+		ADD(x:integer) from A to B;  
+		ADD(z:integer) from B to C;
+		 
+	} or {
+		RES(y:integer) from A to B;
+		RES(z:integer) from B to C; 
+		//continue Loop;
+		do Prot(A, B, C);
+		}
+	//}
+	
+	RES(y) from B to C; 
+}

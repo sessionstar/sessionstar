@@ -1,0 +1,18 @@
+module bad.extensions.annotations.Choice;
+
+
+type <java> "java.lang.integer" from "rt.jar" as int;
+
+
+global protocol Prot(role A, role B, role C)
+{
+	choice at A {
+		ADD(x:int) from A to B;  
+		ADD(z:int) from B to C;  
+	} or {
+		RES(y:int) from A to B;
+		RES(z:int) from B to C;
+	}
+
+	RES(y) from B to C; 
+}

@@ -1,0 +1,15 @@
+module bad.extensions.assrtcore.safety.unsat.AssrtCoreTest40;
+
+
+
+//*  // Testing new unsat
+global protocol Proto1(role A, role B) @'<x:=0>' {
+	choice at A {
+		1() from A to B;
+		do Proto1(A, B);  @'<0>'  // Bad
+		//do Proto1(A, B);  @'<1>'
+	} or {
+		2() from A to B;  @'x=1'
+	}
+}
+//*/

@@ -1,0 +1,6 @@
+//$ PYTHONPATH='lib/:bin/' python src/scribble/Main.py -ip test/ test/base/impourt/Import4.scr
+
+module good.misc.imports.Import04;
+
+import good.misc.imports.pack1.Pack04a;
+import good.misc.imports.pack1.Pack04b;

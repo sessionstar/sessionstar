@@ -1,0 +1,23 @@
+
+
+//$ bin/scribblec.sh modules/core/src/test/scrib/test/foo/Foo.scr -ip modules/core/src/test/scrib/ -d modules/core/src/test/scrib/ -session Foo -api Foo A -V
+
+module test.foo.Foo;
+
+
+//type <java> "java.lang.Integer" from "rt.jar" as Integer;
+
+
+global protocol Foo(role A, role B, role C)
+{
+	choice at A
+	{
+		1() from A to B;
+		2() from A to C;
+	}
+	or
+	{
+		1() from A to C;
+		2() from A to B;
+	}
+}
