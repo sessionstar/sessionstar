@@ -1,0 +1,16 @@
+//$ ~/scribbler/scribble/scribblec-assrt.sh -assrt -fair -z3 -batch Fib.scr
+//$ sessionstar Fib.scr Fib A
+
+module Fib;
+
+type <fstar> "int" from "" as int;
+//type <fstar> "string" from "" as string;
+
+global protocol Fib(role A, role B) @"<x:=0, y:=1> x>=0 && y>=x"
+{
+  Num1(x1: int) from A to B;   @"x1=x"
+  Num2(y1: int) from A to B;   @"y1=y"
+  Num3(z1: int) from B to A;   @"z1=x1+y1"
+  do Fib(A, B);                @"<y, z1>"
+}
+

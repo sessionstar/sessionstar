@@ -1,0 +1,13 @@
+gen.sh
+gen-fsm.sh
+*.fsm
+**/Generated*.fst
+**/_build
+**/_output
+**/_tags
+*.checked
+*.exe
+main.native
+main.ocaml.exe
+.depend
+*.swp
