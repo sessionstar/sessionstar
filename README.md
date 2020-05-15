@@ -47,6 +47,9 @@ e.g.
 sessionstar HigherLower.scr HigherLower B
 ```
 
+`examples` contains implementations for a few examples (including those
+described in the paper).
+
 ## Contact
 
 The authors can be reached at sessionstar2020#gmail.com (replace # with @)
